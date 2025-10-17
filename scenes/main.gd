@@ -5,6 +5,7 @@ extends Node
 @export var player_scene = preload("res://scenes/player.tscn")
 @export var skeleton_scene = preload("res://scenes/skeleton.tscn")
 @onready var world = $World
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	var current_level = level_scene.instantiate()
@@ -12,6 +13,9 @@ func _ready() -> void:
 	var player = player_scene.instantiate()
 	player.position = Vector3(3.0, 2.5, 0.0)
 	world.add_child(player)
-	var skeleton = skeleton_scene.instantiate()
-	skeleton.position = Vector3(-5.0, 2.5, 0.0)
-	world.add_child(skeleton)
+	var num_of_skeletons = rng.randi_range(1,3)
+	for i in num_of_skeletons:
+		var skeleton = skeleton_scene.instantiate()
+		skeleton.position = Vector3(rng.randf_range(-25.0, 25.0), 2.5, rng.randf_range(-18.0, 18.0))
+		world.add_child(skeleton)
+	
