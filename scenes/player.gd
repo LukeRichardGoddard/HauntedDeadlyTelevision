@@ -7,9 +7,12 @@ extends Character
 
 var weapons = [Globals.weapons['barbarian_axe']]
 var weapon_index: int
+var shields = [Globals.shields['barbarian_shield']]
+var shield_index: int
 
 func _ready() -> void:
 	equip(weapons[weapon_index], $PlayerSkin/Barbarian/Rig/Skeleton3D/handslot_r)
+	equip(shields[shield_index], $PlayerSkin/Barbarian/Rig/Skeleton3D/handslot_l)
 
 func _physics_process(delta: float) -> void:
 	move_logic(delta)
@@ -45,6 +48,8 @@ func jump_logic(delta):
 	apply_gravity(gravity, delta)
 
 func ability_logic():
+	defending = Input.is_action_pressed("defend")
+		
 	if Input.is_action_just_pressed("attack"):
 		if not attacking:
 			$AnimationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

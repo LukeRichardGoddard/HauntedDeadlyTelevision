@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0uw1yj3dhapd"]
+
+[ext_resource type="PackedScene" uid="uid://b4eprqe2dlmys" path="res://scenes/shields/shield.tscn" id="1_tbtsl"]
+[ext_resource type="PackedScene" uid="uid://bkskckoe33yv7" path="res://graphics/shields/Skeleton_Shield_Small_A.gltf" id="2_fpuux"]
+
+[node name="SmallShieldA" instance=ExtResource("1_tbtsl")]
+
+[node name="Skeleton_Shield_Small_A2" parent="." index="0" instance=ExtResource("2_fpuux")]

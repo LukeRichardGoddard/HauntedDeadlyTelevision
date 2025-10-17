@@ -54,3 +54,31 @@ var weapons: Dictionary = {
 			'audio': preload("res://audio/staff.wav")
 		},
 }
+
+var shields: Dictionary = {
+	'large_a': {
+		'type': 'shield',
+		'defense': 0.8,
+		'scene': preload("res://scenes/shields/large_shield_a.tscn")
+	},
+	'large_b': {
+		'type': 'shield',
+		'defense': 0.8,
+		'scene': preload("res://scenes/shields/large_shield_b.tscn")
+	},
+	'small_a': {
+		'type': 'shield',
+		'defense': 0.6,
+		'scene': preload("res://scenes/shields/small_shield_a.tscn")
+	},
+	'small_b': {
+		'type': 'shield',
+		'defense': 0.6,
+		'scene': preload("res://scenes/shields/small_shield_b.tscn")
+	},
+	'barbarian_shield': {
+		'type': 'shield',
+		'defense': 0.7,
+		'scene': preload("res://scenes/shields/barbarian_shield.tscn")
+	},
+}
