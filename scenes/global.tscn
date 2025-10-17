@@ -5,4 +5,4 @@
 [node name="Global" type="Node"]
 script = ExtResource("1_4pk28")
 
-[node name="World" type="Node" parent="."]
+[node name="World" type="Node3D" parent="."]

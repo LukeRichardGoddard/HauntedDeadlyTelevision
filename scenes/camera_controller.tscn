@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://t4qcm7u7jqjm"]
+
+[ext_resource type="Script" uid="uid://ctp0j51r4rtnp" path="res://scenes/camera_controller.gd" id="1_nsieu"]
+
+[node name="CameraController" type="SpringArm3D"]
+spring_length = 6.5
+script = ExtResource("1_nsieu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
