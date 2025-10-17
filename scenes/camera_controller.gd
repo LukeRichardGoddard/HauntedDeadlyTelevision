@@ -7,9 +7,10 @@ extends SpringArm3D
 @export var mouse_acceleration: float = 0.005
 
 func _process(delta: float) -> void:
-	var joy_dir = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
-	var joy_dir_accelerated = joy_dir * delta * Vector2(horizontal_acceleration, vertical_acceleration)
-	rotate_from_vector(joy_dir_accelerated)
+	pass
+	#var joy_dir = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
+	#var joy_dir_accelerated = joy_dir * delta * Vector2(horizontal_acceleration, vertical_acceleration)
+	#rotate_from_vector(joy_dir_accelerated)
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
