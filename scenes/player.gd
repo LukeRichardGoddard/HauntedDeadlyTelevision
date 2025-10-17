@@ -5,9 +5,16 @@ extends Character
 @onready var camera = $CameraController/Camera3D
 @onready var skin = $PlayerSkin
 
+var weapons = [Globals.weapons['barbarian_axe']]
+var weapon_index: int
+
+func _ready() -> void:
+	equip(weapons[weapon_index], $PlayerSkin/Barbarian/Rig/Skeleton3D/handslot_r)
+
 func _physics_process(delta: float) -> void:
 	move_logic(delta)
 	jump_logic(delta)
+	ability_logic()
 	move_and_slide()
 
 func move_logic(delta):
@@ -36,3 +43,9 @@ func jump_logic(delta):
 		set_move_state("Jump_Idle")
 	var gravity = jump_gravity if velocity.y > 0.0 else fall_gravity
 	apply_gravity(gravity, delta)
+
+func ability_logic():
+	if Input.is_action_just_pressed("attack"):
+		if not attacking:
+			$AnimationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+			attacking = true

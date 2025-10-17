@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0t0soegtu671"]
+
+[ext_resource type="PackedScene" uid="uid://dmtqb3samr5ws" path="res://scenes/weapons/weapon.tscn" id="1_w43rl"]
+[ext_resource type="PackedScene" uid="uid://6gn7ec6fhag3" path="res://graphics/weapons/Skeleton_Axe.gltf" id="2_5wbh6"]
+
+[node name="Axe" instance=ExtResource("1_w43rl")]
+
+[node name="RayCast3D" parent="." index="0"]
+target_position = Vector3(-0.45, 1, 0)
+
+[node name="Skeleton_Axe" parent="." index="1" instance=ExtResource("2_5wbh6")]

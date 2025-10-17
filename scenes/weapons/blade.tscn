@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4hp2e3lb6vxa"]
+
+[ext_resource type="PackedScene" uid="uid://dmtqb3samr5ws" path="res://scenes/weapons/weapon.tscn" id="1_l1y8q"]
+[ext_resource type="PackedScene" uid="uid://beseuuphpuocx" path="res://graphics/weapons/Skeleton_Blade.gltf" id="1_qrous"]
+
+[node name="Blade" instance=ExtResource("1_l1y8q")]
+
+[node name="Skeleton_Blade" parent="." index="1" instance=ExtResource("1_qrous")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
