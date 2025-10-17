@@ -13,5 +13,5 @@ func _ready() -> void:
 	player.position = Vector3(3.0, 2.5, 0.0)
 	world.add_child(player)
 	var skeleton = skeleton_scene.instantiate()
-	skeleton.position = Vector3(-1.0, 2.5, 0.0)
+	skeleton.position = Vector3(-5.0, 2.5, 0.0)
 	world.add_child(skeleton)
