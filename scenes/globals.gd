@@ -15,7 +15,7 @@ var weapons: Dictionary = {
 			'type': 'weapon',
 			'damage': 3, 
 			'scene': preload("res://scenes/weapons/barbarian_axe.tscn"),
-			'animation': '1H_Melee_Attack_Chop',
+			'animation': '2H_Melee_Attack_Spin',
 			'range': 1.3,
 			'audio': preload("res://audio/axe.wav")
 		},
@@ -24,7 +24,7 @@ var weapons: Dictionary = {
 			'type': 'weapon',
 			'damage': 3, 
 			'scene': preload("res://scenes/weapons/axe.tscn"),
-			'animation': '2H_Melee_Attack_Spin',
+			'animation': '1H_Melee_Attack_Chop',
 			'range': 1.3,
 			'audio': preload("res://audio/axe.wav")
 		},
