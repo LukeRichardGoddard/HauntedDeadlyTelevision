@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsvkq5o6slt07"]
+[gd_scene load_steps=3 format=3 uid="uid://bsvkq5o6slt07"]
 
 [ext_resource type="PackedScene" uid="uid://bqh7h7jr41d6h" path="res://graphics/characters/Barbarian.glb" id="1_3vyb7"]
 
-[node name="Player" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 
 [node name="Barbarian" parent="." instance=ExtResource("1_3vyb7")]
 
@@ -76,5 +79,13 @@ transform = Transform3D(0.9997204, -1.4014349e-09, 0.023646597, 1.3934147e-09, 0
 
 [node name="chest" parent="Barbarian/Rig/Skeleton3D" index="3"]
 transform = Transform3D(0.9962748, -5.1496167e-09, 0.08623532, 5.1304343e-09, 0.99999994, 4.4407705e-10, -0.08623532, 1.8800718e-15, 0.9962748, -2.9196552e-09, 0.9590293, 1.0685902e-15)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.098763, 6.6619797)
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_3vyb7")
 
 [editable path="Barbarian"]

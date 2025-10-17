@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnac6kgj7b0nx"]
+
+[ext_resource type="Script" uid="uid://cpjqe3sats7tq" path="res://scenes/menu.gd" id="1_yqeox"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_yqeox")
+
+[node name="Levels" type="Node3D" parent="."]
