@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://c7ls7g1q1okdd"]
+[gd_scene load_steps=8 format=4 uid="uid://c7ls7g1q1okdd"]
 
 [ext_resource type="PackedScene" uid="uid://b4eprqe2dlmys" path="res://scenes/shields/shield.tscn" id="1_70l8t"]
 [ext_resource type="Texture2D" uid="uid://dert7t616pd06" path="res://graphics/characters/Barbarian_barbarian_texture.png" id="2_5e6df"]
+[ext_resource type="Shader" uid="uid://s8ed68qs53ny" path="res://scenes/shields/flash.gdshader" id="2_anav0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8nx4u"]
+render_priority = 0
+shader = ExtResource("2_anav0")
+shader_parameter/alpha = 0.0
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2gfa"]
 resource_name = "barbarian_texture"
@@ -45,7 +52,10 @@ shadow_mesh = SubResource("ArrayMesh_gjfw7")
 
 [node name="BarbarianShield" instance=ExtResource("1_70l8t")]
 
-[node name="Barbarian_Round_Shield" type="MeshInstance3D" parent="." index="0"]
+[node name="BarbarianShield" type="Node3D" parent="." index="0"]
+
+[node name="Barbarian_Round_Shield" type="MeshInstance3D" parent="BarbarianShield" index="0"]
 transform = Transform3D(0.99999887, 0, 0, 0, 0.99999934, 0, 0, 0, 0.99999934, 0, 0, 0)
+material_overlay = SubResource("ShaderMaterial_8nx4u")
 mesh = SubResource("ArrayMesh_g5fj0")
 skeleton = NodePath("")

@@ -42,22 +42,22 @@ var weapons: Dictionary = {
 var shields: Dictionary = {
 	'large_a': {
 		'type': 'shield',
-		'defense': 0.8,
+		'defense': 0.6,
 		'scene': preload("res://scenes/shields/large_shield_a.tscn")
 	},
 	'large_b': {
 		'type': 'shield',
-		'defense': 0.8,
+		'defense': 0.6,
 		'scene': preload("res://scenes/shields/large_shield_b.tscn")
 	},
 	'small_a': {
 		'type': 'shield',
-		'defense': 0.6,
+		'defense': 0.8,
 		'scene': preload("res://scenes/shields/small_shield_a.tscn")
 	},
 	'small_b': {
 		'type': 'shield',
-		'defense': 0.6,
+		'defense': 0.8,
 		'scene': preload("res://scenes/shields/small_shield_b.tscn")
 	},
 	'barbarian_shield': {

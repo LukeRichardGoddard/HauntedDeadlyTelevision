@@ -3,7 +3,6 @@ extends Character
 @export var acceleration: float = 8
 @export var deceleration: float = 4
 @onready var camera = $CameraController/Camera3D
-@onready var skin = $PlayerSkin
 
 var weapons = [Globals.weapons['barbarian_axe']]
 var weapon_index: int
@@ -11,6 +10,7 @@ var shields = [Globals.shields['barbarian_shield']]
 var shield_index: int
 
 func _ready() -> void:
+	skin = $PlayerSkin
 	equip(weapons[weapon_index], $PlayerSkin/Barbarian/Rig/Skeleton3D/handslot_r)
 	equip(shields[shield_index], $PlayerSkin/Barbarian/Rig/Skeleton3D/handslot_l)
 
@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	jump_logic(delta)
 	ability_logic()
 	move_and_slide()
+	attack_logic()
 
 func move_logic(delta):
 	movement_input = Input.get_vector("move_left","move_right","forward","backward").rotated(-camera.global_rotation.y)
@@ -54,3 +55,6 @@ func ability_logic():
 		if not attacking:
 			$AnimationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 			attacking = true
+
+func death_logic():
+	get_tree().quit()

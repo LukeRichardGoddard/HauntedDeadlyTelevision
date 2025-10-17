@@ -6,7 +6,7 @@ extends SpringArm3D
 @export var vertical_acceleration: float = 1
 @export var mouse_acceleration: float = 0.005
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	#var joy_dir = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
 	#var joy_dir_accelerated = joy_dir * delta * Vector2(horizontal_acceleration, vertical_acceleration)

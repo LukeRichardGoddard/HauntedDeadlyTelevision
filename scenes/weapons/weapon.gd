@@ -11,3 +11,6 @@ func setup(weapon_animation, weapon_damage, weapon_radius, weapon_parent):
 	damage = weapon_damage
 	radius = weapon_radius
 	parent = weapon_parent
+
+func get_collider():
+	return $RayCast3D.get_collider()
