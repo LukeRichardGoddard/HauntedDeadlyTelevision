@@ -4,7 +4,7 @@ extends Character
 @onready var world = get_tree().get_first_node_in_group("Main")
 @onready var tree = $AnimationTree
 @export var notice_radius: float = 15
-@export var speed: float = 2
+@export var speed: float = 7
 @export var attack_radius: float = 2
 @export var taunt_radius: float = 5
 var rng = RandomNumberGenerator.new()
@@ -31,7 +31,7 @@ func flee_from_player(delta):
 	if player:
 		if position.distance_to(player.position) < notice_radius:
 			if not started_spawning_skeletons:
-				$Timers/SpawnTimer.start()
+				_on_spawn_timer_timeout()
 				started_spawning_skeletons = true
 			var target_dir = (player.position - position).normalized()
 			var target_vec2 = Vector2(target_dir.x, target_dir.z)
@@ -75,7 +75,7 @@ func _death_change(value):
 
 
 func _on_spawn_timer_timeout() -> void:
-	$Timers/SpawnTimer.wait_time = rng.randf_range(10.0, 20.0)
+	$Timers/SpawnTimer.wait_time = rng.randf_range(5.0, 10.0)
 	$Timers/SpawnTimer.start()
 	var num_of_skeletons = rng.randi_range(1,3)
 	print("Spawning ", num_of_skeletons, " skeletons")

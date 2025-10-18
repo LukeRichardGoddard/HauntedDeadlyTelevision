@@ -2,10 +2,11 @@ class_name Skeleton
 extends Character
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@export var notice_radius: float = 15
+@export var notice_radius: float = 150
 @export var speed: float = 3
 @export var attack_radius: float = 3
 var rng = RandomNumberGenerator.new()
+var entered_scene: bool = false
 
 func _ready() -> void:
 	for child in $Skins.get_children():
@@ -17,6 +18,7 @@ func _ready() -> void:
 	equip(random_weapon, skin.get_node('Rig/Skeleton3D/RightHand'))
 	attack_radius = current_weapon.radius
 	health = 3
+	set_move_state("Spawn_Ground")
 
 func _physics_process(delta: float) -> void:
 	if health > 0:
