@@ -22,3 +22,8 @@ func spawn_skeleton():
 	var skeleton = skeleton_scene.instantiate()
 	skeleton.position = Vector3(rng.randf_range(-15.0, 15.0), 2.5, rng.randf_range(-8.0, 8.0))
 	world.add_child(skeleton)
+
+func destroy_skeletons():
+	for child in world.get_children():
+		if child is Skeleton:
+			child.destroy()

@@ -31,7 +31,6 @@ func flee_from_player(delta):
 	if player:
 		if position.distance_to(player.position) < notice_radius:
 			if not started_spawning_skeletons:
-				print("Start Spawning")
 				$Timers/SpawnTimer.start()
 				started_spawning_skeletons = true
 			var target_dir = (player.position - position).normalized()
@@ -68,6 +67,7 @@ func death_logic():
 	$Timers/SpawnTimer.stop()
 	var tween = create_tween()
 	tween.tween_method(_death_change, 0.0, 1.0, 0.25)
+	world.destroy_skeletons()
 
 func _death_change(value):
 	$AnimationTree.set("parameters/DeathBlend/blend_amount", value)

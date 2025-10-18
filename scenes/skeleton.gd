@@ -1,3 +1,4 @@
+class_name Skeleton
 extends Character
 
 @onready var player = get_tree().get_first_node_in_group("Player")
@@ -57,3 +58,7 @@ func death_logic():
 
 func _death_change(value):
 	$AnimationTree.set("parameters/DeathBlend/blend_amount", value)
+
+func destroy():
+	health = 0
+	death_logic()
