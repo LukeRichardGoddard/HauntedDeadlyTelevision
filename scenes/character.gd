@@ -80,7 +80,7 @@ func hit(attacking_weapon):
 			current_shield.flash()
 		else:
 			health -= attacking_weapon.damage
-			print("Hit: ", attacking_weapon.damage)
+			print("Hit: ", attacking_weapon.damage, " by ", attacking_weapon.name)
 		$Timers/HitTimer.start()
 		do_squash_and_stretch(1.2, 0.2)
 		
