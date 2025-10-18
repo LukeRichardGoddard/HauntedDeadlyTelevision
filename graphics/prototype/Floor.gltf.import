@@ -40,7 +40,8 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:Floor": {
-"generate/physics": true
+"generate/physics": true,
+"physics/mask": 7
 }
 }
 }

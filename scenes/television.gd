@@ -2,7 +2,7 @@ extends Character
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var tree = $AnimationTree
-@export var notice_radius: float = 5
+@export var notice_radius: float = 15
 @export var speed: float = 2
 @export var attack_radius: float = 2
 var rng = RandomNumberGenerator.new()
@@ -11,8 +11,8 @@ func _ready() -> void:
 	skin = $Skins.get_child(0)
 	tree.anim_player = "../Skins/Skeleton_Minion/AnimationPlayer"
 	var random_weapon = Globals.weapons[Globals.weapons.keys().pick_random()]
-	equip(random_weapon, skin.get_node('Rig/Skeleton3D/RightHand'))
-	attack_radius = 3
+	#equip(random_weapon, skin.get_node('Rig/Skeleton3D/RightHand'))
+	attack_radius = 2
 	health = 5
 
 func _physics_process(delta: float) -> void:
@@ -40,7 +40,7 @@ func flee_from_player(delta):
 					velocity = Vector3.ZERO
 					set_move_state("Taunt")
 				else:
-					rotation.y = rotate_toward(rotation.y, target_angle, delta * 60)
+					rotation.y = rotate_toward(rotation.y, target_angle, 600)
 					velocity = Vector3.ZERO
 					set_move_state("Idle")
 		else:
@@ -63,3 +63,4 @@ func death_logic():
 
 func _death_change(value):
 	$AnimationTree.set("parameters/DeathBlend/blend_amount", value)
+	$"Skins/Skeleton_Minion/Rig/Skeleton3D/Head/old tv/Cube_002".hide()

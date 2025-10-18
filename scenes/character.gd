@@ -76,7 +76,6 @@ func hit(attacking_weapon):
 	if not $Timers/HitTimer.time_left:
 		if defending and current_shield:
 			health -= attacking_weapon.damage * current_shield.defense
-			print("Defending: ", attacking_weapon.damage * current_shield.defense)
 			current_shield.flash()
 		else:
 			health -= attacking_weapon.damage

@@ -17,9 +17,9 @@ func _ready() -> void:
 	var num_of_skeletons = rng.randi_range(1,3)
 	for i in num_of_skeletons:
 		var skeleton = skeleton_scene.instantiate()
-		skeleton.position = Vector3(rng.randf_range(-25.0, 25.0), 2.5, rng.randf_range(-18.0, 18.0))
+		skeleton.position = Vector3(rng.randf_range(-15.0, 15.0), 2.5, rng.randf_range(-8.0, 8.0))
 		world.add_child(skeleton)
 	var tv_skeleton = tv_scene.instantiate()
-	tv_skeleton.position = Vector3(rng.randf_range(-25.0, 25.0), 2.5, rng.randf_range(-18.0, 18.0))
+	tv_skeleton.position = Vector3(rng.randf_range(-15.0, 15.0), 2.5, rng.randf_range(-8.0, 8.0))
 	world.add_child(tv_skeleton)
 	
