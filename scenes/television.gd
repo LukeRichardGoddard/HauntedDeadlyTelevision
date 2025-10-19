@@ -1,7 +1,6 @@
 extends Character
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var world = get_tree().get_first_node_in_group("Main")
 @onready var tree = $AnimationTree
 @export var notice_radius: float = 15
 @export var speed: float = 7

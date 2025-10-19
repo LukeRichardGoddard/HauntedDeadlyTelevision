@@ -11,6 +11,9 @@ var spawn_limit_top_left: Vector2
 var spawn_limit_bottom_right: Vector2
 var player_start: Vector3
 
+var play_sfx: bool = true
+var play_music: bool = true
+
 func _ready() -> void:
 	var current_level = level_scene.instantiate()
 	world.add_child(current_level)
@@ -34,3 +37,15 @@ func destroy_skeletons():
 	for child in world.get_children():
 		if child is Skeleton:
 			child.destroy()
+
+func play_axe():
+	if play_sfx:
+		$Sounds/SFXAxe.play()
+
+func play_blade():
+	if play_sfx:
+		$Sounds/SFXBlade.play()
+
+func play_staff():
+	if play_sfx:
+		$Sounds/SFXStaff.play()

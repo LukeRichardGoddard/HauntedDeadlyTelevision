@@ -1,6 +1,8 @@
 class_name Character
 extends CharacterBody3D
 
+@onready var world = get_tree().get_first_node_in_group("Main")
+
 @export var base_speed: float = 4
 var movement_input: Vector2
 
@@ -81,6 +83,7 @@ func hit(attacking_weapon):
 			health -= attacking_weapon.damage
 			print("Hit: ", attacking_weapon.damage, " by ", attacking_weapon.name)
 		$Timers/HitTimer.start()
+		world.play_axe()
 		do_squash_and_stretch(1.2, 0.2)
 		
 		if health <= 0:
