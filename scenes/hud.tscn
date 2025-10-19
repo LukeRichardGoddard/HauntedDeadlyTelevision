@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=12 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahhtf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toqtt"]
 bg_color = Color(1, 0, 0, 1)
@@ -12,7 +14,20 @@ modulate_color = Color(0, 0, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6fi6k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uo2fv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_047uy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oo0fn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ysmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pdws"]
+
 [node name="HUD" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +44,7 @@ offset_left = 40.0
 offset_top = 40.0
 offset_right = 4.0
 offset_bottom = 27.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ahhtf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -43,8 +59,122 @@ value = 5.0
 show_percentage = false
 
 [node name="HealthLabel" type="Label" parent="PanelContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ahhtf")
 text = "Health"
 label_settings = SubResource("LabelSettings_oo0fn")
+
+[node name="Menu" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = -95.5
+offset_right = 154.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PanelContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6fi6k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uo2fv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "HDTV:
+Haunted Deadly Television"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_047uy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Sound:"
+
+[node name="VSeparator" type="VSeparator" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_oo0fn")
+
+[node name="SFXSlider" type="HSlider" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Music:"
+
+[node name="VSeparator" type="VSeparator" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5ysmq")
+
+[node name="MusicSlider" type="HSlider" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label2" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls:"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Move: WASD
+Attack: Left Mouse      "
+
+[node name="Label" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Menu: M
+Defend: Right Mouse"
+
+[node name="VSeparator2" type="VSeparator" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5pdws")
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6fi6k")
+
+[connection signal="value_changed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]

@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 	#rotate_from_vector(joy_dir_accelerated)
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

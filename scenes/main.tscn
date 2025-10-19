@@ -8,11 +8,13 @@
 [ext_resource type="AudioStream" uid="uid://bv11y5kh4fado" path="res://audio/music/mysterium.mp3" id="5_tbgi4"]
 
 [node name="Main" type="Node" groups=["Main"]]
+process_mode = 3
 script = ExtResource("1_o5qli")
 
 [node name="HUD" parent="." instance=ExtResource("2_tefeu")]
 
 [node name="World" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="Sounds" type="Node" parent="."]
 

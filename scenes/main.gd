@@ -14,8 +14,11 @@ var player_start: Vector3
 
 var play_sfx: bool = true
 var play_music: bool = true
+var sfx_volume: float = 1.0
+var music_volume: float = 1.0
 
 func _ready() -> void:
+	get_tree().paused = true
 	var current_level = level_scene.instantiate()
 	world.add_child(current_level)
 	spawn_limit_top_left = Vector2(current_level.topleft.position.x, current_level.topleft.position.z)
@@ -31,6 +34,13 @@ func _ready() -> void:
 	
 	if play_music:
 		$Music/Mysterium.play()
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("menu"):
+		hud.toggle_menu()
 
 func spawn_skeleton():
 	var skeleton = skeleton_scene.instantiate()
@@ -56,3 +66,12 @@ func play_staff():
 
 func update_health(health: int):
 	hud.update_health(health)
+
+func set_sfx_volume(volume: float):
+	sfx_volume = volume
+	for child in $Sounds.get_children():
+		child.volume_linear = volume
+
+func set_music_volume(volume: float):
+	music_volume = volume
+	$Music/Mysterium.volume_linear = volume
