@@ -34,6 +34,7 @@ var squash_and_stretch: float = 1.0:
 		var negative = 1.0 + (1.0 - squash_and_stretch)
 		skin.scale = Vector3(negative, squash_and_stretch, negative)
 var health: int = 5
+var max_health: int = 5
 
 func defend_toggle(forward: bool):
 	var tween = create_tween()
@@ -85,6 +86,7 @@ func hit(attacking_weapon):
 		$Timers/HitTimer.start()
 		world.play_axe()
 		do_squash_and_stretch(1.2, 0.2)
+		update_health(health)
 		
 		if health <= 0:
 			death_logic()
@@ -95,4 +97,7 @@ func do_squash_and_stretch(value: float, duration: float):
 	tween.tween_property(self, "squash_and_stretch", 1.0, duration * 1.8).set_ease(tween.EASE_OUT)
 
 func death_logic():
+	pass
+
+func update_health(health: int):
 	pass

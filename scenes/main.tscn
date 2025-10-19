@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://kev1ocgreyyf"]
+[gd_scene load_steps=7 format=3 uid="uid://kev1ocgreyyf"]
 
 [ext_resource type="Script" uid="uid://qr8to13chxj2" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="AudioStream" uid="uid://w12qmgmqqv34" path="res://audio/axe.wav" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dpluuwyc78fv6" path="res://scenes/hud.tscn" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://kyeo4p24f3xu" path="res://audio/blade.wav" id="3_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://b1w22li7y7wxf" path="res://audio/staff.wav" id="4_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bv11y5kh4fado" path="res://audio/music/mysterium.mp3" id="5_tbgi4"]
 
 [node name="Main" type="Node" groups=["Main"]]
 script = ExtResource("1_o5qli")
+
+[node name="HUD" parent="." instance=ExtResource("2_tefeu")]
 
 [node name="World" type="Node3D" parent="."]
 

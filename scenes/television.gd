@@ -80,3 +80,6 @@ func _on_spawn_timer_timeout() -> void:
 	print("Spawning ", num_of_skeletons, " skeletons")
 	for i in num_of_skeletons:
 		world.spawn_skeleton()
+
+func update_health(health: int):
+	pass

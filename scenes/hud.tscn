@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpluuwyc78fv6"]
+
+[ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toqtt"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ahhtf"]
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oo0fn"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahhtf")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.114
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HealthProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_toqtt")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ahhtf")
+text = "Health"
+label_settings = SubResource("LabelSettings_oo0fn")

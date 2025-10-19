@@ -10,6 +10,9 @@ var shields = [Globals.shields['barbarian_shield']]
 var shield_index: int
 
 func _ready() -> void:
+	health = 10
+	max_health = 10
+	world.update_health(health)
 	skin = $PlayerSkin
 	equip(weapons[weapon_index], $PlayerSkin/Barbarian/Rig/Skeleton3D/handslot_r)
 	equip(shields[shield_index], $PlayerSkin/Barbarian/Rig/Skeleton3D/handslot_l)
@@ -58,3 +61,6 @@ func ability_logic():
 
 func death_logic():
 	get_tree().quit()
+
+func update_health(health: int):
+	world.update_health(health)

@@ -65,3 +65,6 @@ func destroy():
 	if health > 0:
 		health = 0
 		death_logic()
+
+func update_health(health: int):
+	pass

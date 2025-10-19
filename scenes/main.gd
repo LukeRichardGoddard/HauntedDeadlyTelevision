@@ -6,6 +6,7 @@ extends Node
 @export var skeleton_scene = preload("res://scenes/skeleton.tscn")
 @export var tv_scene = preload("res://scenes/television.tscn")
 @onready var world = $World
+@onready var hud = $HUD
 var rng = RandomNumberGenerator.new()
 var spawn_limit_top_left: Vector2
 var spawn_limit_bottom_right: Vector2
@@ -52,3 +53,6 @@ func play_blade():
 func play_staff():
 	if play_sfx:
 		$Sounds/SFXStaff.play()
+
+func update_health(health: int):
+	hud.update_health(health)
