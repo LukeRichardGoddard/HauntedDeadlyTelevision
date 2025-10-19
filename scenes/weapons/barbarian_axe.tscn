@@ -46,7 +46,7 @@ shadow_mesh = SubResource("ArrayMesh_qviqb")
 [node name="BarbarianAxe" instance=ExtResource("1_caqxe")]
 
 [node name="RayCast3D" parent="." index="0"]
-target_position = Vector3(-0.45, 1, 0)
+target_position = Vector3(-0.45, 1.5, 0)
 
 [node name="1H_Axe" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(-0.999999, 0, -8.742273e-08, 0, 0.99999946, 0, 8.742269e-08, 0, -0.99999946, 0, 0, 0)
