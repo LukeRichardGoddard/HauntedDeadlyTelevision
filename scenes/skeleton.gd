@@ -62,5 +62,6 @@ func _death_change(value):
 	$AnimationTree.set("parameters/DeathBlend/blend_amount", value)
 
 func destroy():
-	health = 0
-	death_logic()
+	if health > 0:
+		health = 0
+		death_logic()

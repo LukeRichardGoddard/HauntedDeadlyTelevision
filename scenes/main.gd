@@ -27,6 +27,9 @@ func _ready() -> void:
 	var tv_skeleton = tv_scene.instantiate()
 	tv_skeleton.position = Vector3(rng.randf_range(spawn_limit_top_left.x, spawn_limit_bottom_right.x), 1.0, rng.randf_range(spawn_limit_top_left.y, spawn_limit_bottom_right.y))
 	world.add_child(tv_skeleton)
+	
+	if play_music:
+		$Music/Mysterium.play()
 
 func spawn_skeleton():
 	var skeleton = skeleton_scene.instantiate()
