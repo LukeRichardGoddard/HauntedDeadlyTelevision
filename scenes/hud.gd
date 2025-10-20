@@ -48,8 +48,8 @@ func _on_music_slider_value_changed(value: float) -> void:
 	world.set_music_volume(value)
 
 
-var dialogs = {'LevelA': 2, 'LevelB': 13, 'LevelC': 19}
-var end_level_dialogs = {'LevelA': 9, 'LevelB': 17, 'LevelC': 24}
+var dialogs = {'LevelA': 2, 'LevelB': 7, 'LevelC': 13}
+var end_level_dialogs = {'LevelA': 9, 'LevelB': 11, 'LevelC': 15}
 
 func start_end_dialog():
 	dialog_index = end_level_dialogs[world.get_level_name()]
