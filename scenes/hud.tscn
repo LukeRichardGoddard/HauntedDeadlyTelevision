@@ -1,6 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=23 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://dvbnaoqw5qqgp" path="res://graphics/characters/knight_pic.png" id="2_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://cwhcd7nb1hrv1" path="res://graphics/characters/mage_pic.png" id="3_047uy"]
+[ext_resource type="Texture2D" uid="uid://l537spei7qsv" path="res://graphics/characters/rogue_pic.png" id="4_5pdws"]
+[ext_resource type="Texture2D" uid="uid://cl6judegdm15o" path="res://graphics/characters/barbarian_pic.png" id="5_hd3ao"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahhtf"]
 
@@ -26,6 +30,24 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pdws"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hd3ao"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0i1j5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmq"]
+bg_color = Color(0, 0.3872429, 0.5601054, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
+bg_color = Color(0.9254902, 0.9254902, 0.9254902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mphia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m4u7"]
+bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_apjy4"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="HUD" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -36,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="HealthBar" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.114
@@ -46,10 +68,10 @@ offset_right = 4.0
 offset_bottom = 27.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ahhtf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HealthBar"]
 layout_mode = 2
 
-[node name="HealthProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer"]
+[node name="HealthProgressBar" type="ProgressBar" parent="HealthBar/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_toqtt")
@@ -58,13 +80,14 @@ step = 1.0
 value = 5.0
 show_percentage = false
 
-[node name="HealthLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="HealthLabel" type="Label" parent="HealthBar/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ahhtf")
 text = "Health"
 label_settings = SubResource("LabelSettings_oo0fn")
 
 [node name="Menu" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,6 +198,109 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_5pdws")
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_6fi6k")
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hd3ao")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogBox"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0i1j5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBox/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogBox/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="DialogBox" type="PanelContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmq")
+
+[node name="OuterBox" type="MarginContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InnerBox" type="HBoxContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ProfilePic" type="PanelContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fi6k")
+
+[node name="KnightPic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_uo2fv")
+
+[node name="MagePic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_047uy")
+
+[node name="RoguePic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_5pdws")
+
+[node name="BarbarianPic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+layout_mode = 2
+texture = ExtResource("5_hd3ao")
+
+[node name="VSeparator2" type="VSeparator" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mphia")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0m4u7")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DialogText" type="Label" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Dialog
+
+
+"
+label_settings = SubResource("LabelSettings_apjy4")
+
+[node name="InstructionText" type="Label" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "PRESS SPACE TO CONTINUE"
+label_settings = SubResource("LabelSettings_apjy4")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DialogBox/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [connection signal="value_changed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]

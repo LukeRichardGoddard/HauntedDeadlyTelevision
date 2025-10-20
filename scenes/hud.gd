@@ -2,6 +2,9 @@ extends Control
 
 @onready var world = get_tree().get_first_node_in_group("Main")
 
+func _ready() -> void:
+	pass
+
 func toggle_menu():
 	if $Menu.visible:
 		$Menu.hide()
@@ -13,7 +16,7 @@ func toggle_menu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func update_health(health: int):
-	$PanelContainer/VBoxContainer/HealthProgressBar.value = health
+	$HealthBar/VBoxContainer/HealthProgressBar.value = health
 
 
 func _on_sfx_slider_value_changed(value: float) -> void:
