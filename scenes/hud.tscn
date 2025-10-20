@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=38 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://b3jl2tp4m4jn" path="res://scenes/dialog_text.gd" id="2_047uy"]
@@ -135,6 +135,9 @@ bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_apjy4"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_047uy"]
+font_size = 32
 
 [node name="HUD" type="Control"]
 process_mode = 3
@@ -399,6 +402,54 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="DialogBox/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+
+[node name="Game Over" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Game Over"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Game Over/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Game Over/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "HDTV:
+Haunted Deadly Television"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Game Over/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_047uy")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Game Over/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PLAY AGAIN: P"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Game Over/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT: Q"
+horizontal_alignment = 1
 
 [connection signal="value_changed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]

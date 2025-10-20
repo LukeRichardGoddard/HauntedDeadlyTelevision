@@ -44,7 +44,7 @@ func move_logic(delta):
 
 func jump_logic(delta):
 	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") and not world.showing_dialog():
 			velocity.y -= jump_velocity
 	else:
 		set_move_state("Jump_Idle")
@@ -60,7 +60,7 @@ func ability_logic():
 			attacking = true
 
 func death_logic():
-	get_tree().quit()
+	world.game_over()
 
 func update_health(health: int):
 	world.update_health(health)

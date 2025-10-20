@@ -14,6 +14,8 @@ func reset():
 	$CollisionShape3D.disabled = false
 	$"Skins/Skeleton_Minion/Rig/Skeleton3D/Head/old tv/Cube_002".show()
 	$AnimationTree.set("parameters/DeathBlend/blend_amount", 0.0)
+	$Timers/AttackTimer.start()
+	$Timers/SpawnTimer.start()
 
 func _ready() -> void:
 	skin = $Skins.get_child(0)

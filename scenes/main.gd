@@ -21,8 +21,10 @@ var sfx_volume: float = 1.0
 var music_volume: float = 1.0
 
 func _ready() -> void:
-	get_tree().paused = true
+	get_tree().paused = false
 	load_level()
+	hud.load_dialog()
+	hud.load_dialog()
 
 func load_level():
 	if not current_level == null:
@@ -99,3 +101,9 @@ func get_level_name():
 
 func start_end_dialog():
 	hud.start_end_dialog()
+
+func game_over():
+	hud.game_over()
+
+func showing_dialog():
+	return hud.showing_dialog()
