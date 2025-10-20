@@ -5,6 +5,9 @@ extends Control
 var dialog_index
 var new_game = true
 
+func update_score():
+	%ScoreLabel.text = str(world.score)
+
 func reset():
 	new_game = true
 	call_deferred("show_menu")
@@ -101,7 +104,7 @@ func process_dialog():
 			"Rogue":
 				%RoguePic.show()
 			
-		if dialog[dialog_index].next == 0:
+		if dialog[dialog_index].next == 0 or dialog[dialog_index].next == 1:
 			%InstructionText.text = "PRESS SPACE TO EXIT"
 		else:
 			%InstructionText.text = "PRESS SPACE TO CONTINUE"

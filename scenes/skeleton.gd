@@ -53,6 +53,7 @@ func _on_attack_timer_timeout() -> void:
 			attacking = true
 
 func death_logic():
+	world.add_points(100)
 	$CollisionShape3D.disabled = true
 	$Timers/AttackTimer.stop()
 	var tween = create_tween()

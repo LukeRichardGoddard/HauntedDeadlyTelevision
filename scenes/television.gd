@@ -76,6 +76,7 @@ func _on_attack_timer_timeout() -> void:
 
 func death_logic():
 	world.play_defeat()
+	world.add_points(1000)
 	$CollisionShape3D.disabled = true
 	$Timers/AttackTimer.stop()
 	$Timers/SpawnTimer.stop()

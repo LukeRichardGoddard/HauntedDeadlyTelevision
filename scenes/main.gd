@@ -14,6 +14,7 @@ var spawn_limit_top_left: Vector2
 var spawn_limit_bottom_right: Vector2
 var player_start: Vector3
 var current_level
+var score = 0
 
 var play_sfx: bool = true
 var play_music: bool = true
@@ -122,3 +123,7 @@ func game_over():
 
 func showing_dialog():
 	return hud.showing_dialog()
+
+func add_points(points: int):
+	score += points
+	hud.update_score()
