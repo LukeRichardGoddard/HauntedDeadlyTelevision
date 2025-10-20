@@ -73,7 +73,10 @@ func attack_logic():
 	if attacking:
 		var collider = current_weapon.get_collider()
 		if collider and collider != self and "hit" in collider:
-			collider.hit(current_weapon)
+			if self is Skeleton and collider is Skeleton:
+				pass
+			else:
+				collider.hit(current_weapon)
 
 func hit(attacking_weapon):
 	if not $Timers/HitTimer.time_left:
@@ -99,5 +102,5 @@ func do_squash_and_stretch(value: float, duration: float):
 func death_logic():
 	pass
 
-func update_health(health: int):
+func update_health(_health: int):
 	pass

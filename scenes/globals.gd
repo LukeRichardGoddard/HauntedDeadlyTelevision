@@ -31,7 +31,7 @@ var weapons: Dictionary = {
 	'staff': 
 		{
 			'type': 'weapon',
-			'damage': 1, 
+			'damage': 2, 
 			'scene': preload("res://scenes/weapons/staff.tscn"),
 			'animation': '2H_Melee_Attack_Slice',
 			'range': 2.1,

@@ -23,8 +23,6 @@ var music_volume: float = 1.0
 func _ready() -> void:
 	get_tree().paused = false
 	load_level()
-	hud.load_dialog()
-	hud.load_dialog()
 
 func load_level():
 	if not current_level == null:
@@ -51,12 +49,13 @@ func load_level():
 	else:
 		tv_skeleton.position = Vector3(rng.randf_range(spawn_limit_top_left.x, spawn_limit_bottom_right.x), 1.0, rng.randf_range(spawn_limit_top_left.y, spawn_limit_bottom_right.y))
 		tv_skeleton.reset()
-		world.add_child(tv_skeleton)
 	if play_music:
 		$Music/Mysterium.play()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	hud.reset()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("menu"):

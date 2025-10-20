@@ -3,6 +3,17 @@ extends Control
 @onready var world = get_tree().get_first_node_in_group("Main")
 @export var dialog: Array[DialogText] = []
 var dialog_index
+var new_game = true
+
+func reset():
+	new_game = true
+	call_deferred("show_menu")
+
+func show_menu():
+	%DialogBox.hide()
+	$Menu.show()
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func game_over():
 	%"Game Over".show()
@@ -12,6 +23,10 @@ func toggle_menu():
 		$Menu.hide()
 		get_tree().paused = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		if new_game:
+			load_dialog()
+			load_dialog()
+			new_game = false
 	else:
 		$Menu.show()
 		get_tree().paused = true
