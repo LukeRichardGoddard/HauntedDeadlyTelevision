@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=37 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://b3jl2tp4m4jn" path="res://scenes/dialog_text.gd" id="2_047uy"]
@@ -13,32 +13,38 @@ player = "Mage"
 text = "Should Be Hidden"
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
+[sub_resource type="Resource" id="Resource_5357l"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "Going to next level"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
 [sub_resource type="Resource" id="Resource_5pdws"]
 script = ExtResource("2_047uy")
 player = "Barbarian"
 text = "* Phone Rings* Hello, Bob's TV Repairs?"
-next = 2
+next = 3
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_047uy"]
 script = ExtResource("2_047uy")
 player = "Rogue"
 text = "Hi, Can you please come and fix my TV?"
-next = 3
+next = 4
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_0m4u7"]
 script = ExtResource("2_047uy")
 player = "Barbarian"
 text = "Sure, what seems to be the problem?"
-next = 4
+next = 5
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_hd3ao"]
 script = ExtResource("2_047uy")
 player = "Rogue"
 text = "I got it in the Halloween Sales, but I think it's haunted. It makes some really strange sounds."
-next = 5
+next = 6
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_0i1j5"]
@@ -51,7 +57,7 @@ metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 script = ExtResource("2_047uy")
 player = "Barbarian"
 text = "How can I help?"
-next = 7
+next = 8
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_eld54"]
@@ -64,24 +70,28 @@ metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 script = ExtResource("2_047uy")
 player = "Rogue"
 text = "Thanks for fixing the TV!"
+next = 10
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_3swnk"]
 script = ExtResource("2_047uy")
 player = "Barbarian"
 text = "All in a day's work"
+next = 1
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_qkknv"]
 script = ExtResource("2_047uy")
 player = "Mage"
 text = "The skeletons are gone! Thank you so much"
+next = 12
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_uxdf7"]
 script = ExtResource("2_047uy")
 player = "Barbarian"
 text = "You're welcome"
+next = 1
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahhtf"]
@@ -135,7 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
-dialog = Array[ExtResource("2_047uy")]([SubResource("Resource_mphia"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_5n1hp"), SubResource("Resource_eld54"), SubResource("Resource_apjy4"), SubResource("Resource_3swnk"), SubResource("Resource_qkknv"), SubResource("Resource_uxdf7")])
+dialog = Array[ExtResource("2_047uy")]([SubResource("Resource_mphia"), SubResource("Resource_5357l"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_5n1hp"), SubResource("Resource_eld54"), SubResource("Resource_apjy4"), SubResource("Resource_3swnk"), SubResource("Resource_qkknv"), SubResource("Resource_uxdf7")])
 
 [node name="HealthBar" type="PanelContainer" parent="."]
 layout_mode = 1

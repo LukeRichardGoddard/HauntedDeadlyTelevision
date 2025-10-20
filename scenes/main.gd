@@ -1,12 +1,14 @@
 class_name  Main
 extends Node
 
-@export var level_scene = preload("res://scenes/levels/level_b.tscn")
+@export var level_scenes = [preload("res://scenes/levels/level_a.tscn"),preload("res://scenes/levels/level_b.tscn")]
 @export var player_scene = preload("res://scenes/player.tscn")
 @export var skeleton_scene = preload("res://scenes/skeleton.tscn")
 @export var tv_scene = preload("res://scenes/television.tscn")
 @onready var world = $World
 @onready var hud = $HUD
+var player
+var tv_skeleton
 var rng = RandomNumberGenerator.new()
 var spawn_limit_top_left: Vector2
 var spawn_limit_bottom_right: Vector2
@@ -20,19 +22,34 @@ var music_volume: float = 1.0
 
 func _ready() -> void:
 	get_tree().paused = true
-	current_level = level_scene.instantiate()
+	load_level()
+
+func load_level():
+	if not current_level == null:
+		for child in world.get_children():
+			if child is Level or child is Skeleton:
+				child.queue_free()
+	current_level = level_scenes.pick_random().instantiate()
 	world.add_child(current_level)
 	spawn_limit_top_left = Vector2(current_level.topleft.position.x, current_level.topleft.position.z)
 	spawn_limit_bottom_right = Vector2(current_level.bottomright.position.x, current_level.bottomright.position.z)
 	player_start = current_level.player_start.position
 	
-	var player = player_scene.instantiate()
-	player.position = player_start
-	world.add_child(player)
-	var tv_skeleton = tv_scene.instantiate()
-	tv_skeleton.position = Vector3(rng.randf_range(spawn_limit_top_left.x, spawn_limit_bottom_right.x), 1.0, rng.randf_range(spawn_limit_top_left.y, spawn_limit_bottom_right.y))
-	world.add_child(tv_skeleton)
+	if player == null:
+		player = player_scene.instantiate()
+		player.position = player_start
+		world.add_child(player)
+	else:
+		player.position = player_start
 	
+	if tv_skeleton == null:
+		tv_skeleton = tv_scene.instantiate()
+		tv_skeleton.position = Vector3(rng.randf_range(spawn_limit_top_left.x, spawn_limit_bottom_right.x), 1.0, rng.randf_range(spawn_limit_top_left.y, spawn_limit_bottom_right.y))
+		world.add_child(tv_skeleton)
+	else:
+		tv_skeleton.position = Vector3(rng.randf_range(spawn_limit_top_left.x, spawn_limit_bottom_right.x), 1.0, rng.randf_range(spawn_limit_top_left.y, spawn_limit_bottom_right.y))
+		tv_skeleton.reset()
+		world.add_child(tv_skeleton)
 	if play_music:
 		$Music/Mysterium.play()
 	
@@ -78,7 +95,7 @@ func set_music_volume(volume: float):
 	$Music/Mysterium.volume_linear = volume
 
 func get_level_name():
-	return current_level.name()
+	return current_level.level
 
 func start_end_dialog():
 	hud.start_end_dialog()

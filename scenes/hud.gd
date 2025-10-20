@@ -26,11 +26,11 @@ func _on_music_slider_value_changed(value: float) -> void:
 	world.set_music_volume(value)
 
 
-var dialogs = {'LevelA': 1, 'LevelB': 6}
-var end_level_dialogs = {'LevelA': 8, 'LevelB': 10}
+var dialogs = {'LevelA': 2, 'LevelB': 7}
+var end_level_dialogs = {'LevelA': 9, 'LevelB': 11}
 
 func start_end_dialog():
-	dialog_index = end_level_dialogs[world.get_child(1).get_child(0).name]
+	dialog_index = end_level_dialogs[world.get_level_name()]
 	process_dialog()
 
 func get_line(level: String):
@@ -39,9 +39,13 @@ func get_line(level: String):
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if dialog_index == null:
-			dialog_index = dialogs[world.get_child(1).get_child(0).name]
+			dialog_index = dialogs[world.get_level_name()]
 			#print(world.get_child(1).get_child(0).name, world.get_child(1).name)
-		process_dialog()
+		elif dialog_index == 1:
+			world.load_level()
+			dialog_index = dialogs[world.get_level_name()]
+		else:
+			process_dialog()
 		
 func process_dialog():
 	if %DialogBox.visible == true and dialog_index == 0:

@@ -9,6 +9,12 @@ extends Character
 var rng = RandomNumberGenerator.new()
 var started_spawning_skeletons = false
 
+func reset():
+	health = 5
+	$CollisionShape3D.disabled = false
+	$"Skins/Skeleton_Minion/Rig/Skeleton3D/Head/old tv/Cube_002".show()
+	$AnimationTree.set("parameters/DeathBlend/blend_amount", 0.0)
+
 func _ready() -> void:
 	skin = $Skins.get_child(0)
 	tree.anim_player = "../Skins/Skeleton_Minion/AnimationPlayer"
