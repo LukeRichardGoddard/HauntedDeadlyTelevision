@@ -1,7 +1,7 @@
 class_name  Main
 extends Node
 
-@export var level_scenes = [preload("res://scenes/levels/level_a.tscn"),preload("res://scenes/levels/level_b.tscn")]
+@export var level_scenes = [preload("res://scenes/levels/level_a.tscn"),preload("res://scenes/levels/level_b.tscn"),preload("res://scenes/levels/level_c.tscn")]
 @export var player_scene = preload("res://scenes/player.tscn")
 @export var skeleton_scene = preload("res://scenes/skeleton.tscn")
 @export var tv_scene = preload("res://scenes/television.tscn")

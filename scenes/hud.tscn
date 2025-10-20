@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=39 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://b3jl2tp4m4jn" path="res://scenes/dialog_text.gd" id="2_047uy"]
@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 [sub_resource type="Resource" id="Resource_5pdws"]
 script = ExtResource("2_047uy")
 player = "Barbarian"
-text = "* Phone Rings* Hello, Bob's TV Repairs?"
+text = "Hello, Bob's TV Repairs?"
 next = 3
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
@@ -135,6 +135,8 @@ bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_apjy4"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0m4u7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_047uy"]
 font_size = 32
@@ -322,7 +324,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_6fi6k")
 
 [node name="DialogBox" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -419,6 +420,12 @@ text = "Dialog
 
 "
 label_settings = SubResource("LabelSettings_apjy4")
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0m4u7")
 
 [node name="InstructionText" type="Label" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://kev1ocgreyyf"]
+[gd_scene load_steps=28 format=3 uid="uid://kev1ocgreyyf"]
 
 [ext_resource type="Script" uid="uid://qr8to13chxj2" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="AudioStream" uid="uid://w12qmgmqqv34" path="res://audio/axe.wav" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dpluuwyc78fv6" path="res://scenes/hud.tscn" id="2_tefeu"]
+[ext_resource type="Script" uid="uid://b3jl2tp4m4jn" path="res://scenes/dialog_text.gd" id="3_choun"]
 [ext_resource type="AudioStream" uid="uid://kyeo4p24f3xu" path="res://audio/blade.wav" id="3_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://b1w22li7y7wxf" path="res://audio/staff.wav" id="4_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bv11y5kh4fado" path="res://audio/music/mysterium.mp3" id="5_tbgi4"]
@@ -10,11 +11,126 @@
 [ext_resource type="AudioStream" uid="uid://c1vruulsiw8gh" path="res://audio/rise.ogg" id="7_choun"]
 [ext_resource type="AudioStream" uid="uid://crrvf4egsmoyf" path="res://audio/defeated.ogg" id="8_ya4ey"]
 
+[sub_resource type="Resource" id="Resource_mphia"]
+script = ExtResource("3_choun")
+player = "Mage"
+text = "Should Be Hidden"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_5357l"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "Going to next level"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_5pdws"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "Hello, Bob's TV Repairs?"
+next = 3
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_047uy"]
+script = ExtResource("3_choun")
+player = "Rogue"
+text = "Hi, Can you please come and fix my TV?"
+next = 4
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_0m4u7"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "Sure, what seems to be the problem?"
+next = 5
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_hd3ao"]
+script = ExtResource("3_choun")
+player = "Rogue"
+text = "I got it in the Halloween Sales, but I think it's haunted. It makes some really strange sounds."
+next = 6
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_0i1j5"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "OK, I'll be right over"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_5n1hp"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "How can I help?"
+next = 8
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_eld54"]
+script = ExtResource("3_choun")
+player = "Mage"
+text = "I think my TV is haunted"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_apjy4"]
+script = ExtResource("3_choun")
+player = "Rogue"
+text = "Thanks for fixing the TV!"
+next = 10
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_3swnk"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "All in a day's work"
+next = 1
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_qkknv"]
+script = ExtResource("3_choun")
+player = "Mage"
+text = "The skeletons are gone! Thank you so much"
+next = 12
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_uxdf7"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "You're welcome"
+next = 1
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_ya4ey"]
+script = ExtResource("3_choun")
+player = "Knight"
+text = "Can you catch this haunted television?"
+next = 14
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_eb6dy"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "I'll be there soon"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_trceg"]
+script = ExtResource("3_choun")
+player = "Knight"
+text = "All of the skeletons are dead! I mean, dead again."
+next = 16
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_a8y0u"]
+script = ExtResource("3_choun")
+player = "Barbarian"
+text = "Let's hope they stay dead this time."
+next = 1
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
 [node name="Main" type="Node" groups=["Main"]]
 process_mode = 3
 script = ExtResource("1_o5qli")
 
 [node name="HUD" parent="." instance=ExtResource("2_tefeu")]
+dialog = Array[ExtResource("3_choun")]([SubResource("Resource_mphia"), SubResource("Resource_5357l"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_5n1hp"), SubResource("Resource_eld54"), SubResource("Resource_apjy4"), SubResource("Resource_3swnk"), SubResource("Resource_qkknv"), SubResource("Resource_uxdf7"), SubResource("Resource_ya4ey"), SubResource("Resource_eb6dy"), SubResource("Resource_trceg"), SubResource("Resource_a8y0u")])
 
 [node name="World" type="Node3D" parent="."]
 process_mode = 1
