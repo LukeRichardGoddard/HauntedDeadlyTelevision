@@ -1,10 +1,58 @@
-[gd_scene load_steps=23 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=31 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://b3jl2tp4m4jn" path="res://scenes/dialog_text.gd" id="2_047uy"]
 [ext_resource type="Texture2D" uid="uid://dvbnaoqw5qqgp" path="res://graphics/characters/knight_pic.png" id="2_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://cwhcd7nb1hrv1" path="res://graphics/characters/mage_pic.png" id="3_047uy"]
 [ext_resource type="Texture2D" uid="uid://l537spei7qsv" path="res://graphics/characters/rogue_pic.png" id="4_5pdws"]
 [ext_resource type="Texture2D" uid="uid://cl6judegdm15o" path="res://graphics/characters/barbarian_pic.png" id="5_hd3ao"]
+
+[sub_resource type="Resource" id="Resource_mphia"]
+script = ExtResource("2_047uy")
+player = "Mage"
+text = "Should Be Hidden"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_5pdws"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "* Phone Rings* Hello, Bob's TV Repairs?"
+next = 2
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_047uy"]
+script = ExtResource("2_047uy")
+player = "Rogue"
+text = "Hi, Can you please come and fix my TV?"
+next = 3
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_0m4u7"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "Sure, what seems to be the problem?"
+next = 4
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_hd3ao"]
+script = ExtResource("2_047uy")
+player = "Rogue"
+text = "I got it in the Halloween Sales, but I think it's haunted. It makes some really strange sounds."
+next = 5
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_0i1j5"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "OK, I'll be right over"
+next = 6
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_apjy4"]
+script = ExtResource("2_047uy")
+player = "Mage"
+text = "Should Be Hidden"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahhtf"]
 
@@ -57,6 +105,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
+dialog = Array[ExtResource("2_047uy")]([SubResource("Resource_mphia"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_apjy4")])
 
 [node name="HealthBar" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -87,7 +136,6 @@ text = "Health"
 label_settings = SubResource("LabelSettings_oo0fn")
 
 [node name="Menu" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -200,6 +248,8 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_6fi6k")
 
 [node name="DialogBox" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -238,25 +288,31 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="ProfilePic" type="PanelContainer" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6fi6k")
 
 [node name="KnightPic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("2_uo2fv")
 
 [node name="MagePic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("3_047uy")
 
 [node name="RoguePic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("4_5pdws")
 
 [node name="BarbarianPic" type="TextureRect" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/ProfilePic"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = ExtResource("5_hd3ao")
 
@@ -281,6 +337,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 
 [node name="DialogText" type="Label" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -291,6 +348,7 @@ text = "Dialog
 label_settings = SubResource("LabelSettings_apjy4")
 
 [node name="InstructionText" type="Label" parent="DialogBox/PanelContainer/VBoxContainer/HBoxContainer/DialogBox/OuterBox/InnerBox/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
