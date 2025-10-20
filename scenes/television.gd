@@ -8,9 +8,12 @@ extends Character
 @export var taunt_radius: float = 5
 var rng = RandomNumberGenerator.new()
 var started_spawning_skeletons = false
+var played_found: bool = false
+var skip_play_rise: bool = false
 
 func reset():
 	health = 5
+	played_found = false
 	$CollisionShape3D.disabled = false
 	$"Skins/Skeleton_Minion/Rig/Skeleton3D/Head/old tv/Cube_002".show()
 	$AnimationTree.set("parameters/DeathBlend/blend_amount", 0.0)
@@ -37,6 +40,9 @@ func _physics_process(delta: float) -> void:
 func flee_from_player(delta):
 	if player:
 		if position.distance_to(player.position) < notice_radius:
+			if not played_found:
+				world.play_found()
+				played_found = true
 			if not started_spawning_skeletons:
 				_on_spawn_timer_timeout()
 				started_spawning_skeletons = true
@@ -69,6 +75,7 @@ func _on_attack_timer_timeout() -> void:
 			#attacking = true
 
 func death_logic():
+	world.play_defeat()
 	$CollisionShape3D.disabled = true
 	$Timers/AttackTimer.stop()
 	$Timers/SpawnTimer.stop()
@@ -86,6 +93,10 @@ func _death_change(value):
 
 
 func _on_spawn_timer_timeout() -> void:
+	if skip_play_rise:
+		skip_play_rise = true
+	else:
+		world.play_rise()
 	$Timers/SpawnTimer.wait_time = rng.randf_range(5.0, 10.0)
 	$Timers/SpawnTimer.start()
 	var num_of_skeletons = rng.randi_range(1,3)

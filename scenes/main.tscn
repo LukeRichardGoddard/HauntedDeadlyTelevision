@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kev1ocgreyyf"]
+[gd_scene load_steps=10 format=3 uid="uid://kev1ocgreyyf"]
 
 [ext_resource type="Script" uid="uid://qr8to13chxj2" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="AudioStream" uid="uid://w12qmgmqqv34" path="res://audio/axe.wav" id="2_jyhfs"]
@@ -6,6 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://kyeo4p24f3xu" path="res://audio/blade.wav" id="3_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://b1w22li7y7wxf" path="res://audio/staff.wav" id="4_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bv11y5kh4fado" path="res://audio/music/mysterium.mp3" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://bu2v4yd2q3vgl" path="res://audio/you_found_me.ogg" id="6_85g3d"]
+[ext_resource type="AudioStream" uid="uid://c1vruulsiw8gh" path="res://audio/rise.ogg" id="7_choun"]
+[ext_resource type="AudioStream" uid="uid://crrvf4egsmoyf" path="res://audio/defeated.ogg" id="8_ya4ey"]
 
 [node name="Main" type="Node" groups=["Main"]]
 process_mode = 3
@@ -26,6 +29,16 @@ stream = ExtResource("3_tbgi4")
 
 [node name="SFXStaff" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_tefeu")
+
+[node name="SFXFound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_85g3d")
+
+[node name="SFXRise" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_choun")
+
+[node name="SFXDefeat" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_ya4ey")
+volume_db = -12.0
 
 [node name="Music" type="Node" parent="."]
 

@@ -79,6 +79,22 @@ func play_blade():
 	if play_sfx:
 		$Sounds/SFXBlade.play()
 
+func play_found():
+	if play_sfx:
+		$Sounds/SFXFound.play()
+		
+func play_rise():
+	if play_sfx:
+		if $Sounds/SFXFound.playing:
+			$Sounds/SFXFound.stop()
+		$Sounds/SFXRise.play()
+		
+func play_defeat():
+	if play_sfx:
+		if $Sounds/SFXRise.playing:
+			$Sounds/SFXRise.stop()
+		$Sounds/SFXDefeat.play()
+		
 func play_staff():
 	if play_sfx:
 		$Sounds/SFXStaff.play()
