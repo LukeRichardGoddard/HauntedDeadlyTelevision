@@ -79,3 +79,6 @@ func set_music_volume(volume: float):
 
 func get_level_name():
 	return current_level.name()
+
+func start_end_dialog():
+	hud.start_end_dialog()

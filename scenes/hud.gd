@@ -27,6 +27,11 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 
 var dialogs = {'LevelA': 1, 'LevelB': 6}
+var end_level_dialogs = {'LevelA': 8, 'LevelB': 10}
+
+func start_end_dialog():
+	dialog_index = end_level_dialogs[world.get_child(1).get_child(0).name]
+	process_dialog()
 
 func get_line(level: String):
 	return dialogs[level]

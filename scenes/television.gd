@@ -67,6 +67,10 @@ func death_logic():
 	var tween = create_tween()
 	tween.tween_method(_death_change, 0.0, 1.0, 0.25)
 	world.destroy_skeletons()
+	$Timers/EndCallTimer.start()
+
+func end_dialog():
+	world.start_end_dialog()
 
 func _death_change(value):
 	$AnimationTree.set("parameters/DeathBlend/blend_amount", value)
