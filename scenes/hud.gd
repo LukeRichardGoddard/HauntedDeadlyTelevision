@@ -64,7 +64,10 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("play_again"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("interact"):
-		load_dialog()
+		if $Menu.visible:
+			toggle_menu()
+		else:
+			load_dialog()
 
 func load_dialog():
 	if dialog_index == null:
