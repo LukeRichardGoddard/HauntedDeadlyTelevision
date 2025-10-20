@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=52 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://b3jl2tp4m4jn" path="res://scenes/dialog_text.gd" id="2_047uy"]
@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 [sub_resource type="Resource" id="Resource_5pdws"]
 script = ExtResource("2_047uy")
 player = "Barbarian"
-text = "Hello, Bob's TV Repairs?"
+text = "*RING* Hello, Bob's TV Repairs"
 next = 3
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
@@ -56,14 +56,12 @@ metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 [sub_resource type="Resource" id="Resource_5n1hp"]
 script = ExtResource("2_047uy")
 player = "Barbarian"
-text = "How can I help?"
 next = 8
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_eld54"]
 script = ExtResource("2_047uy")
 player = "Mage"
-text = "I think my TV is haunted"
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="Resource" id="Resource_apjy4"]
@@ -91,6 +89,95 @@ metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 script = ExtResource("2_047uy")
 player = "Barbarian"
 text = "You're welcome"
+next = 1
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_iypfu"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "*RING* Hello, Bob's TV Repairs"
+next = 14
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_qpprf"]
+script = ExtResource("2_047uy")
+player = "Mage"
+text = "I think my TV is haunted. I got a special halloween deal, but now all I get is static"
+next = 15
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_3xg78"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "OK, I will be there to fix it soon. I hope you don't mind, I'm still in costume from trick or treating."
+next = 16
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_48y67"]
+script = ExtResource("2_047uy")
+player = "Mage"
+text = "Sounds like fun, see you soon!"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_084dp"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "The TV and skeletons have all been defeated"
+next = 18
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_y2nlu"]
+script = ExtResource("2_047uy")
+player = "Mage"
+text = "Thanks, I don't know what I would have done without you!"
+next = 1
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_kp442"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "*RING* Hello, Bob's TV Repairs"
+next = 20
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_gltyx"]
+script = ExtResource("2_047uy")
+player = "Knight"
+text = "You have to help me with this creepy tv!"
+next = 21
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_mgfyp"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "Was this TV from the Halloween Sales? There have been a lot of those lately"
+next = 22
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_ptr5m"]
+script = ExtResource("2_047uy")
+player = "Knight"
+text = "Yes, I just want it out of my house as soon as you can!"
+next = 23
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_of3ib"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "I'll be there in a flash"
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_7600b"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "The source of the evil has been destroyed"
+next = 25
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_e558t"]
+script = ExtResource("2_047uy")
+player = "Knight"
+text = "Well done! Let us pray that the undead leave us alone from now on."
 next = 1
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
@@ -150,7 +237,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
-dialog = Array[ExtResource("2_047uy")]([SubResource("Resource_mphia"), SubResource("Resource_5357l"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_5n1hp"), SubResource("Resource_eld54"), SubResource("Resource_apjy4"), SubResource("Resource_3swnk"), SubResource("Resource_qkknv"), SubResource("Resource_uxdf7")])
+dialog = Array[ExtResource("2_047uy")]([SubResource("Resource_mphia"), SubResource("Resource_5357l"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_5n1hp"), SubResource("Resource_eld54"), SubResource("Resource_apjy4"), SubResource("Resource_3swnk"), SubResource("Resource_qkknv"), SubResource("Resource_uxdf7"), SubResource("Resource_iypfu"), SubResource("Resource_qpprf"), SubResource("Resource_3xg78"), SubResource("Resource_48y67"), SubResource("Resource_084dp"), SubResource("Resource_y2nlu"), SubResource("Resource_kp442"), SubResource("Resource_gltyx"), SubResource("Resource_mgfyp"), SubResource("Resource_ptr5m"), SubResource("Resource_of3ib"), SubResource("Resource_7600b"), SubResource("Resource_e558t")])
 
 [node name="HealthBar" type="PanelContainer" parent="."]
 layout_mode = 1

@@ -4,7 +4,7 @@ var weapons: Dictionary = {
 	'blade': 
 		{
 			'type': 'weapon',
-			'damage': 1, 
+			'damage': 2, 
 			'scene': preload("res://scenes/weapons/blade.tscn"),
 			'animation': '1H_Melee_Attack_Stab',
 			'range': 1.2,
@@ -62,7 +62,7 @@ var shields: Dictionary = {
 	},
 	'barbarian_shield': {
 		'type': 'shield',
-		'defense': 0.7,
+		'defense': 0.5,
 		'scene': preload("res://scenes/shields/barbarian_shield.tscn")
 	},
 }
