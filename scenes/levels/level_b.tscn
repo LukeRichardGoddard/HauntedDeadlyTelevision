@@ -16,7 +16,7 @@ sky = SubResource("Sky_mx8sn")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="LevelA" type="Node3D"]
+[node name="LevelB" type="Node3D"]
 script = ExtResource("1_ievcv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

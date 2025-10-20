@@ -11,6 +11,7 @@ var rng = RandomNumberGenerator.new()
 var spawn_limit_top_left: Vector2
 var spawn_limit_bottom_right: Vector2
 var player_start: Vector3
+var current_level
 
 var play_sfx: bool = true
 var play_music: bool = true
@@ -19,7 +20,7 @@ var music_volume: float = 1.0
 
 func _ready() -> void:
 	get_tree().paused = true
-	var current_level = level_scene.instantiate()
+	current_level = level_scene.instantiate()
 	world.add_child(current_level)
 	spawn_limit_top_left = Vector2(current_level.topleft.position.x, current_level.topleft.position.z)
 	spawn_limit_bottom_right = Vector2(current_level.bottomright.position.x, current_level.bottomright.position.z)
@@ -75,3 +76,6 @@ func set_sfx_volume(volume: float):
 func set_music_volume(volume: float):
 	music_volume = volume
 	$Music/Mysterium.volume_linear = volume
+
+func get_level_name():
+	return current_level.name()

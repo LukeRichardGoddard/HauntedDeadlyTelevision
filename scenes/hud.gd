@@ -2,7 +2,7 @@ extends Control
 
 @onready var world = get_tree().get_first_node_in_group("Main")
 @export var dialog: Array[DialogText] = []
-var dialog_index = 0
+var dialog_index
 
 func toggle_menu():
 	if $Menu.visible:
@@ -26,22 +26,28 @@ func _on_music_slider_value_changed(value: float) -> void:
 	world.set_music_volume(value)
 
 
-var dialogs = {'level_a': 1, 'level_b': 1}
+var dialogs = {'LevelA': 1, 'LevelB': 6}
 
 func get_line(level: String):
 	return dialogs[level]
 
-func _ready() -> void:
-	dialog_index = get_line('level_b')
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
-		if %DialogBox.visible == true and dialog_index == 0:
-			%DialogBox.visible = false
-			get_tree().paused = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			return
-		%DialogBox.visible = true
+		if dialog_index == null:
+			dialog_index = dialogs[world.get_child(1).get_child(0).name]
+			#print(world.get_child(1).get_child(0).name, world.get_child(1).name)
+		process_dialog()
+		
+func process_dialog():
+	if %DialogBox.visible == true and dialog_index == 0:
+		%DialogBox.hide()
+		get_tree().paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif dialog_index == 0:
+		return
+	else:
+		print("Showing dialog box, index ", dialog_index)
+		%DialogBox.show()
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
@@ -58,7 +64,7 @@ func _process(_delta: float) -> void:
 			"Rogue":
 				%RoguePic.show()
 			
-		if dialog[dialog[dialog_index].next].next == 0:
+		if dialog[dialog_index].next == 0:
 			%InstructionText.text = "PRESS SPACE TO EXIT"
 		else:
 			%InstructionText.text = "PRESS SPACE TO CONTINUE"

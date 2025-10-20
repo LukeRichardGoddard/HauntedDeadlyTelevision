@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpluuwyc78fv6"]
+[gd_scene load_steps=32 format=3 uid="uid://dpluuwyc78fv6"]
 
 [ext_resource type="Script" uid="uid://bjbl3ff3casbo" path="res://scenes/hud.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://b3jl2tp4m4jn" path="res://scenes/dialog_text.gd" id="2_047uy"]
@@ -45,13 +45,19 @@ metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 script = ExtResource("2_047uy")
 player = "Barbarian"
 text = "OK, I'll be right over"
-next = 6
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
-[sub_resource type="Resource" id="Resource_apjy4"]
+[sub_resource type="Resource" id="Resource_5n1hp"]
+script = ExtResource("2_047uy")
+player = "Barbarian"
+text = "How can I help?"
+next = 7
+metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
+
+[sub_resource type="Resource" id="Resource_eld54"]
 script = ExtResource("2_047uy")
 player = "Mage"
-text = "Should Be Hidden"
+text = "I think my TV is haunted"
 metadata/_custom_type_script = "uid://b3jl2tp4m4jn"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahhtf"]
@@ -105,7 +111,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
-dialog = Array[ExtResource("2_047uy")]([SubResource("Resource_mphia"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_apjy4")])
+dialog = Array[ExtResource("2_047uy")]([SubResource("Resource_mphia"), SubResource("Resource_5pdws"), SubResource("Resource_047uy"), SubResource("Resource_0m4u7"), SubResource("Resource_hd3ao"), SubResource("Resource_0i1j5"), SubResource("Resource_5n1hp"), SubResource("Resource_eld54")])
 
 [node name="HealthBar" type="PanelContainer" parent="."]
 layout_mode = 1
