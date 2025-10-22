@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh5bokqq20w8y"]
+
+[ext_resource type="PackedScene" uid="uid://b1bwivhxi32m" path="res://scenes/television.tscn" id="1_w3xvt"]
+
+[node name="SubViewport" type="SubViewport"]
+transparent_bg = true
+
+[node name="Television" parent="." instance=ExtResource("1_w3xvt")]
+
+[node name="Camera3D" type="Camera3D" parent="Television"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5630183, 2.5221188)
